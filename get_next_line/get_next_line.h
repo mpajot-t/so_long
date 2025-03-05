@@ -1,53 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   len_utils.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 10:25:55 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/02/17 11:39:28 by mpajot-t         ###   ########.fr       */
+/*   Created: 2024/11/15 09:28:11 by mpajot-t          #+#    #+#             */
+/*   Updated: 2025/02/17 11:40:08 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ft_intlen(int a)
-{
-	int	i;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 512
+# endif
 
-	i = 0;
-	if (a <= 0)
-		i++;
-	while (a != 0)
-	{
-		a /= 10;
-		i++;
-	}
-	return (i);
-}
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
 
-int	ft_unsintlen(unsigned int a)
-{
-	int	i;
+char	*get_next_line(int fd);
+size_t	ft_strlen(const char *str);
+size_t	ft_strlen_nl(const char *str);
+char	*strjoin(char *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
 
-	i = 0;
-	if (a == 0)
-		return (1);
-	while (a > 0)
-	{
-		a /= 10;
-		i++;
-	}
-	return (i);
-}
-
-/* size_t	ft_strlen(const char *c)
-{
-	int	i;
-
-	i = 0;
-	while (c[i])
-		i++;
-	return (i);
-} */
+#endif

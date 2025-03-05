@@ -10,7 +10,20 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 MLX = $(MLX_DIR)/libmlx.a
 MLX_EX = $(MLX) $(MLX_FLAGS)
 
-SRCS = test.c
+SRCS = ./src/main.c \
+	   ./src/get_map.c \
+	   ./src/map.c \
+	   ./src/map_check.c \
+	   ./src/utils.c \
+	   ./src/flood_fill.c \
+	   ./src/initialize_struct.c \
+	   ./src/key_hook.c \
+	   ./src/movements.c \
+	   ./src/free_all.c \
+	   ./src/ber_check.c \
+	   ./get_next_line/get_next_line_utils.c \
+	   ./get_next_line/get_next_line.c \
+	   ./get_next_line/get_next_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 
