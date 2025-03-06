@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:35:48 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/05 10:09:11 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/06 09:39:45 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_data {
 	int		cur_balls;
 	int		steps;
 	char	**map;
+	char	**map_copy;
 	t_img	*img;
 }	t_data;
 

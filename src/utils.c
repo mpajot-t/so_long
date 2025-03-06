@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:35:20 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/05 10:08:27 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:21:13 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ void	errors_message(int index)
 
 int	get_map_line_width(t_data *data)
 {
-	int i;
-	int line_width;
+	int	i;
+	int	line_width;
 
 	i = 0;
 	line_width = 0;
 	while (data->map[i][line_width] != '\0')
-			line_width++;
+		line_width++;
 	return (line_width);
 }
 
 int	get_map_height(t_data *data)
 {
-	int height;
-	int i;
-	int j;
+	int	height;
+	int	i;
+	int	j;
 
 	height = 0;
 	i = 0;
@@ -64,8 +64,8 @@ int	get_map_height(t_data *data)
 
 void	find_player_and_exit(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (data->map[y])
@@ -91,8 +91,8 @@ void	find_player_and_exit(t_data *data)
 
 void	get_balls(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (data->map[y])

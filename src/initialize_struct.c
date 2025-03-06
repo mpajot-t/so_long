@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:26:34 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/05 10:08:27 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:19:16 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 t_data	*initialize_data(t_img *img, char *argv)
 {
-	t_data *data;
+	t_data	*data;
+
 	data = malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
@@ -29,19 +30,19 @@ t_data	*initialize_data(t_img *img, char *argv)
 	data->nb_balls = 0;
 	data->steps = 0;
 	get_map(argv, data);
+	data->map_copy = NULL;
 	data->height = get_map_line_width(data) * 96;
 	data->width = get_map_height(data) * 96;
 	if (!data->map)
-    {
-        free(data);
-        return (NULL);
-    }
-	return(data);
+	{
+		free(data);
+		return (NULL);
+	}
+	return (data);
 }
 
-t_img	*initialize_img()
+t_img	*initialize_img(t_img *img)
 {
-	t_img *img;
 	img = malloc(sizeof(t_img));
 	if (!img)
 		return (NULL);

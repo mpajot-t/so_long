@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:01:18 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/05 10:16:06 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:25:58 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ static int	count_chars(t_data *data, t_map_check check)
 	int	i;
 	int	j;
 
-	i = 0;
-	while(data->map[i])
+	i = -1;
+	while (data->map[++i])
 	{
 		j = 0;
-			while(data->map[i][j] != '\0')
-			{
-				if(data->map[i][j] != 'C' && data->map[i][j] != 'E' && data->map[i][j] != 'P'
-					&& data->map[i][j] != '0' && data->map[i][j] != '1')
-					return (errors_message(3), 0);
-				if(data->map[i][j] == 'C')
-					check.item++;
-				else if(data->map[i][j] == 'E')
-					check.exit++;
-				else if(data->map[i][j] == 'P')
-					check.start++;
-				j++;
-			}
-		i++;
+		while (data->map[i][j] != '\0')
+		{
+			if (data->map[i][j] != 'C' && data->map[i][j] != 'E' &&
+				data->map[i][j] != 'P'
+				&& data->map[i][j] != '0' && data->map[i][j] != '1')
+				return (errors_message(3), 0);
+			if (data->map[i][j] == 'C')
+				check.item++;
+			else if (data->map[i][j] == 'E')
+				check.exit++;
+			else if (data->map[i][j] == 'P')
+				check.start++;
+			j++;
+		}
 	}
 	if (check.item < 1 || check.exit != 1 || check.start != 1)
 		return (errors_message(2), 0);
@@ -43,7 +43,7 @@ static int	count_chars(t_data *data, t_map_check check)
 
 static int	check_walls(t_data *data, int height, int width)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (data->map[0][++i] != '\0')
@@ -69,7 +69,7 @@ static int	check_walls(t_data *data, int height, int width)
 static int	line_check(t_data *data)
 {
 	int	line_width;
-	int previous_line;
+	int	previous_line;
 	int	i;
 
 	i = 0;

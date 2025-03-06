@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:34:38 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/05 10:08:27 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:08:26 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,17 @@ void	free_img(t_data *data)
 		free(data->img);
 	}
 }
+
 void	free_all(t_data *data)
 {
+	int	i;
+
+	i = 0;
 	if (!data)
 		return ;
 	free_img(data);
 	if (data->map)
 	{
-		int i = 0;
 		while (data->map[i])
 			free(data->map[i++]);
 		free(data->map);

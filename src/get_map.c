@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:33:29 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/05 10:08:27 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:09:45 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	get_map_height_path(char *path)
 {
-	int fd;
-	int height;
-	char *line;
+	int		fd;
+	int		height;
+	char	*line;
 
 	height = 0;
 	fd = open(path, O_RDONLY);
@@ -31,29 +31,21 @@ static int	get_map_height_path(char *path)
 		free(line);
 	}
 	line = get_next_line(fd);
-	while (line)
-	{
-		free(line);
-		line = get_next_line(fd);
-	}
 	close(fd);
 	return (height);
 }
 
 static void	fill_map(t_data *data, char *path)
 {
-	char *line;
-	int line_width;
-	int index;
-	int fd;
+	char	*line;
+	int		line_width;
+	int		index;
+	int		fd;
 
 	index = 0;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-	{
-		free(data->map);
-		return ;
-	}
+		return (free(data->map));
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -66,17 +58,12 @@ static void	fill_map(t_data *data, char *path)
 	}
 	data->map[index] = NULL;
 	line = get_next_line(fd);
-	while (line)
-	{
-		free(line);
-		line = get_next_line(fd);
-	}
 	close(fd);
 }
 
 void	get_map(char *path, t_data *data)
 {
-	int height;
+	int	height;
 
 	height = get_map_height_path(path);
 	if (height == -1)

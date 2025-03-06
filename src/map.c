@@ -6,31 +6,32 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:22:39 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/05 10:08:27 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:23:53 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-static void get_xpm_sprites(t_data *data)
+
+static void	get_xpm_sprites(t_data *data)
 {
-	data->img->img_floor = mlx_xpm_file_to_image(data->mlx, data->img->floor, 
-	&data->img->width, &data->img->height);
-	data->img->img_collect = mlx_xpm_file_to_image(data->mlx, data->img->collect, 
-	&data->img->width, &data->img->height);
-	data->img->img_exit = mlx_xpm_file_to_image(data->mlx, data->img->exit, 
-	&data->img->width, &data->img->height);
-	data->img->img_exit2 = mlx_xpm_file_to_image(data->mlx, data->img->exit2, 
-	&data->img->width, &data->img->height);
-	data->img->img_player = mlx_xpm_file_to_image(data->mlx, data->img->player, 
-	&data->img->width, &data->img->height);
-	data->img->img_wall = mlx_xpm_file_to_image(data->mlx, data->img->wall, 
-	&data->img->width, &data->img->height);
+	data->img->img_floor = mlx_xpm_file_to_image(data->mlx, data->img->floor,
+			&data->img->width, &data->img->height);
+	data->img->img_collect = mlx_xpm_file_to_image(data->mlx,
+			data->img->collect, &data->img->width, &data->img->height);
+	data->img->img_exit = mlx_xpm_file_to_image(data->mlx, data->img->exit,
+			&data->img->width, &data->img->height);
+	data->img->img_exit2 = mlx_xpm_file_to_image(data->mlx, data->img->exit2,
+			&data->img->width, &data->img->height);
+	data->img->img_player = mlx_xpm_file_to_image(data->mlx, data->img->player,
+			&data->img->width, &data->img->height);
+	data->img->img_wall = mlx_xpm_file_to_image(data->mlx, data->img->wall,
+			&data->img->width, &data->img->height);
 }
 
 static void	put_img_to_win(t_data *data, void *img)
 {
-	mlx_put_image_to_window(data->mlx, data->mlx_win, img, 
-	data->x, data->y);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, img,
+		data->x, data->y);
 	data->x += 96;
 }
 
@@ -39,9 +40,9 @@ static void	generate_sprites(t_data *data)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = -1;
 	get_xpm_sprites(data);
-	while (data->map[i])
+	while (data->map[++i])
 	{
 		j = 0;
 		data->x = 0;
@@ -59,7 +60,6 @@ static void	generate_sprites(t_data *data)
 				put_img_to_win(data, data->img->img_collect);
 			j++;
 		}
-		i++;
 		data->y += 96;
 	}
 }
@@ -75,7 +75,8 @@ void	generate_map(t_data *data)
 	data->img->height = 96;
 	data->img->width = 96;
 	data->mlx = mlx_init();
-	data->mlx_win = mlx_new_window(data->mlx, data->height, data->width, "so_long");
+	data->mlx_win = mlx_new_window(data->mlx, data->height,
+			data->width, "so_long");
 	get_balls(data);
 	generate_sprites(data);
 }

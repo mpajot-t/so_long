@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:33:27 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/05 10:07:56 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:26:24 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@ static int	close_win(t_data *data)
 	exit(0);
 	return (0);
 }
-int main(int argc, char **argv)
-{
-	t_data *data;
-	t_img *img;
 
+int	main(int argc, char **argv)
+{
+	t_data	*data;
+	t_img	*img;
+
+	img = NULL;
 	if (argc != 2)
 		return (errors_message(0), 1);
 	if (!ber_check(argv[1]))
 		return (errors_message(6), 1);
-	img = initialize_img();
+	img = initialize_img(img);
 	data = initialize_data(img, argv[1]);
 	if (map_check(data) == 0)
 		return (free_all(data), 0);
