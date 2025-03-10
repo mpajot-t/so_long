@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:35:20 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/06 10:21:13 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/10 09:30:29 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	errors_message(int index)
 		ft_printf("La map n'est pas entièrement entourée de murs.\n");
 	else if (index == 6)
 		ft_printf("L'extension de fichier est incorrecte.\n");
+	else if (index == 7)
+		ft_printf("Fichier vide.\n");
+	else if (index == 8)
+		ft_printf("Fichier inexistant.\n");
 }
 
 int	get_map_line_width(t_data *data)

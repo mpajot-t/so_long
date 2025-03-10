@@ -31,19 +31,19 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 # Build so_long
-$(NAME): libft printf mlx $(OBJS)
+$(NAME): Libft/libft.a printf/libftprintf.a mlx $(OBJS)
 	@echo "\033[1;93m [WAIT]\033[0m\t\033[1;35m so_long is being built...\033[0m"
 	@$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(PRINTF) $(MLX_EX) -o $(NAME)
 	@echo "\033[1;32m [OK] \033[0m\t\033[1;35m so_long built successfully!\033[0m"
 
 # Build libft library
-libft:
+Libft/libft.a:
 	@echo "\033[1;93m [WAIT]\033[0m\t\033[1;35m libft is being built...\033[0m"
 	@$(MAKE) -s -C $(LIBFT_DIR)
 	@echo "\033[1;32m [OK] \033[0m\t\033[1;35m libft built successfully!\033[0m"
 
 # Build ft_printf library
-printf:
+printf/libftprintf.a:
 	@echo "\033[1;93m [WAIT]\033[0m\t\033[1;35m printf is being built...\033[0m"
 	@$(MAKE) -s -C $(PRINTF_DIR)
 	@echo "\033[1;32m [OK] \033[0m\t\033[1;35m printf built successfully!\033[0m"

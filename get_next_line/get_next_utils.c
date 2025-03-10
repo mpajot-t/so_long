@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 09:28:13 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/02/17 11:36:53 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/07 10:39:01 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,8 @@ char	*ft_strjoin(char *s1, char const *s2)
 		return (NULL);
 	if (s1)
 	{
-		while (s1[i])
-		{
+		while (s1[i++])
 			ns[i] = s1[i];
-			i++;
-		}
 	}
 	while (s2[j])
 	{

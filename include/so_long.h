@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:35:48 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/06 09:39:45 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/07 10:35:26 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include "../minilibx-linux/mlx.h"
 # include "../get_next_line/get_next_line.h"
 
-typedef struct	img_s {
+typedef struct img_s
+{
 	char	*floor;
 	char	*wall;
 	char	*exit;
@@ -36,7 +37,8 @@ typedef struct	img_s {
 	int		height;
 }	t_img;
 
-typedef struct s_data {
+typedef struct s_data
+{
 	void	*mlx;
 	void	*mlx_win;
 	int		width;
@@ -53,7 +55,8 @@ typedef struct s_data {
 	t_img	*img;
 }	t_data;
 
-typedef struct s_map_check {
+typedef struct s_map_check
+{
 	int	exit;
 	int	item;
 	int	start;
@@ -66,10 +69,10 @@ void	errors_message(int index);
 int		get_map_line_width(t_data *data);
 int		get_map_height(t_data *data);
 int		is_map_valid(t_data *data, int width, int height);
-t_img	*initialize_img();
+t_img	*initialize_img(t_img *img);
 t_data	*initialize_data(t_img *img, char *argv);
 void	generate_map(t_data *data);
-int	key_hook(int keycode, t_data *data);
+int		key_hook(int keycode, t_data *data);
 void	find_player_and_exit(t_data *data);
 void	get_balls(t_data *data);
 void	update_position(t_data *data, int new_y, int new_x);

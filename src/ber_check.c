@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 09:35:33 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/06 09:54:44 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/10 09:30:55 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,16 @@ static int	ft_strcmp(const char *s1, const char *s2)
 int	ber_check(char *map_name)
 {
 	int	len;
+	int fd;
 
 	len = ft_strlen(map_name);
+	fd = open(map_name, O_RDONLY);
+	if (fd < 0)
+		return (errors_message(8), 1);
 	if (len < 4)
-		return (0);
+		return (errors_message(6), 1);
 	if (ft_strcmp(&map_name[len - 4], ".ber") == 0)
-		return (1);
-	return (0);
+		return (0);
+	close(fd);
+	return (errors_message(6), 1);
 }

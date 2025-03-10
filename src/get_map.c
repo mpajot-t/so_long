@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:33:29 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/06 10:09:45 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/10 09:35:03 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,12 @@ void	get_map(char *path, t_data *data)
 	int	height;
 
 	height = get_map_height_path(path);
-	if (height == -1)
-		return ;
+	if (height  <= 0)
+	{
+		errors_message(7);
+		free_all(data);
+		exit(0);
+	}
 	data->map = malloc((height + 1) * sizeof(char *));
 	if (!data->map)
 		return ;

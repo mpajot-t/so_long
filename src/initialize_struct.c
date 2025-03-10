@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:26:34 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/03/06 10:19:16 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/03/10 09:42:35 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_data	*initialize_data(t_img *img, char *argv)
 	data->cur_balls = 0;
 	data->nb_balls = 0;
 	data->steps = 0;
+	data->map = NULL;
 	get_map(argv, data);
 	data->map_copy = NULL;
 	data->height = get_map_line_width(data) * 96;
